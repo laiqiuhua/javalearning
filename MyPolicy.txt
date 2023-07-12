@@ -1,0 +1,7 @@
+grant codebase "file:/Users/laiqiuhua/IdeaProjects/javalearnning/target/classes/com/learnning/javalearnning/security/" {
+ permission java.io.FilePermission  "/Users/laiqiuhua/IdeaProjects/javalearnning/bin/*", "write";
+};
+
+grant  {
+    permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+};

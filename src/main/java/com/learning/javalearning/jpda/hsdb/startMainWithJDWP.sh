@@ -1,0 +1,1 @@
+java -XX:-UseCompressedOops -XX:+UseSerialGC -Xmx10m -Xdebug -Xrunjdwp:transport=dt_socket,address=8888,server=y,suspend=y com.learning.javalearning.jpda.hsdb.Main
