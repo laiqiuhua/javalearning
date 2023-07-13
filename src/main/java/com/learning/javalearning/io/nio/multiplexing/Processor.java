@@ -1,8 +1,6 @@
 package com.learning.javalearning.io.nio.multiplexing;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -18,7 +16,6 @@ import java.util.concurrent.Executors;
 
 @Slf4j
 public class Processor {
-  private static final Logger LOGGER = LoggerFactory.getLogger(Processor.class);
   private static final ExecutorService service =
       Executors.newFixedThreadPool(2 * Runtime.getRuntime().availableProcessors());
 

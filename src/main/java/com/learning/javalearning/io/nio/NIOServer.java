@@ -1,8 +1,6 @@
 package com.learning.javalearning.io.nio;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -16,8 +14,6 @@ import java.util.Set;
 
 @Slf4j
 public class NIOServer {
-
-  private static final Logger LOGGER = LoggerFactory.getLogger(NIOServer.class);
 
   public static void main(String[] args) throws IOException {
     Selector selector = Selector.open();

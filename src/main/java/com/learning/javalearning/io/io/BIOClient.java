@@ -14,7 +14,7 @@ public class BIOClient {
     socketChannel.connect(address);
 
     RandomAccessFile file = new RandomAccessFile(
-        BIOClient.class.getClassLoader().getResource("test.tmp").getFile(), "rw");
+        BIOClient.class.getClassLoader().getResource("in.txt").getFile(), "rw");
     FileChannel channel = file.getChannel();
     channel.transferTo(0, channel.size(), socketChannel);
     channel.close();

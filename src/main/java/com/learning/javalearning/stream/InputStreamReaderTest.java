@@ -10,7 +10,7 @@ public class InputStreamReaderTest {
 
     public static void main(String[] args) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(
-                new FileInputStream("src/test.tmp"), "UTF8"), 1024)) {
+                new FileInputStream("src/in.txt"), "UTF8"), 1024)) {
             System.out.println(reader.readLine());
         } catch (Exception e) {
             e.printStackTrace();

@@ -8,6 +8,7 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -32,8 +33,10 @@ public class MultiplexingIOServer {
     int index = 0;
     while (selector.select() > 0) {
       Set<SelectionKey> keys = selector.selectedKeys();
-      for (SelectionKey key : keys) {
-        keys.remove(key);
+      Iterator<SelectionKey> iterator = keys.iterator();
+      while (iterator.hasNext()) {
+        SelectionKey key = iterator.next();
+        iterator.remove();
         if (key.isAcceptable()) {
           ServerSocketChannel acceptServerSocketChannel = (ServerSocketChannel) key.channel();
           SocketChannel socketChannel = acceptServerSocketChannel.accept();

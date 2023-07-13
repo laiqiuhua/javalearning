@@ -14,7 +14,7 @@ public class MultiplexingIOClient {
     socketChannel.connect(address);
 
     RandomAccessFile file = new RandomAccessFile(
-        MultiplexingIOClient.class.getClassLoader().getResource("test.tmp").getFile(), "rw");
+        MultiplexingIOClient.class.getClassLoader().getResource("in.txt").getFile(), "rw");
     FileChannel channel = file.getChannel();
     channel.transferTo(0, channel.size(), socketChannel);
     channel.close();

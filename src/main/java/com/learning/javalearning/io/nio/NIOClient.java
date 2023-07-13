@@ -14,7 +14,7 @@ public class NIOClient {
     socketChannel.connect(address);
 
     RandomAccessFile file = new RandomAccessFile(
-        NIOClient.class.getClassLoader().getResource("test.tmp").getFile(), "rw");
+        NIOClient.class.getClassLoader().getResource("in.txt").getFile(), "rw");
     FileChannel channel = file.getChannel();
     channel.transferTo(0, channel.size(), socketChannel);
     channel.close();

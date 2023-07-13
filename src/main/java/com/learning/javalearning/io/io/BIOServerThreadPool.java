@@ -2,8 +2,6 @@ package com.learning.javalearning.io.io;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,8 +14,6 @@ import java.util.concurrent.Executors;
 
 @Slf4j
 public class BIOServerThreadPool {
-
-  private static final Logger LOGGER = LoggerFactory.getLogger(BIOServerThreadPool.class);
 
   public static void main(String[] args) {
     ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
