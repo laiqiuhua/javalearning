@@ -1,4 +1,4 @@
-package com.learning.javalearning.threads;
+package com.learning.javalearning.lock.deadlock;
 
 import java.util.concurrent.TimeUnit;
 

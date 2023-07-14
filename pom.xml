@@ -139,6 +139,12 @@
             <artifactId>metrics-core</artifactId>
             <version>4.0.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
         <!-- jmx java management extensions -->
         <!--<dependency>-->

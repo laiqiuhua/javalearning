@@ -22,7 +22,7 @@ public class DefaultUncaughtExceptionHandler {
             System.out.println(t.getThreadGroup());
             System.out.println(t.getContextClassLoader());
 
-            System.out.printf("exception caught:" + e);
+            System.out.println("exception caught:" + e);
         }
     }
 }
