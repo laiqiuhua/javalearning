@@ -17,7 +17,7 @@ import java.util.concurrent.Executors;
 public class CopyOnWriteArrayListTest {
 	
 	private static final int THREAD_POOL_MAX_NUM = 10;
-	private List<String> mList = new CopyOnWriteArrayList<String>();
+	private List<String> mList = new CopyOnWriteArrayList<>();
 	
 	public static void main(String args[]) {
 		new CopyOnWriteArrayListTest().start();
