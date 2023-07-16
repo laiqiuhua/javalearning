@@ -39,7 +39,8 @@ public class MergeSort {
      * @param center 左数组的最后一个元素的索引，center+1是右数组第一个元素的索引
      * @param right  右数组最后一个元素的索引
      */
-    public static void merge(int[] data, int left, int center, int right) { // 临时数组
+    public static void merge(int[] data, int left, int center, int right) {
+        // 临时数组
         int[] tmpArr = new int[data.length];
 // 右数组第一个元素索引
         int mid = center + 1;

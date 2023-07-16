@@ -16,12 +16,18 @@ public class BucketSort {
 
     public static void main(String[] args) {
         int[] array = new int[]{1, 3, 2, 7, 5, 8, 9, 4, 22, 32, 33, 45, 65};
-        bucketSort(array);
-        System.out.println(Arrays.toString(array));
+
+        ArrayList<ArrayList<Integer>> bucket = bucketSort(array);
+        System.out.println(Arrays.toString(bucket.toArray()));
 
     }
 
-    public static void bucketSort(int[] arr) {
+    /**
+     * 桶排序
+     * @param arr 数组
+     * @return
+     */
+    public static ArrayList<ArrayList<Integer>> bucketSort(int[] arr) {
 
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
@@ -34,7 +40,7 @@ public class BucketSort {
         int bucketNum = (max - min) / arr.length + 1;
         ArrayList<ArrayList<Integer>> bucketArr = new ArrayList<>(bucketNum);
         for (int i = 0; i < bucketNum; i++) {
-            bucketArr.add(new ArrayList<Integer>());
+            bucketArr.add(new ArrayList<>());
         }
 
         //将每个元素放入桶
@@ -47,5 +53,6 @@ public class BucketSort {
         for (int i = 0; i < bucketArr.size(); i++) {
             Collections.sort(bucketArr.get(i));
         }
+        return bucketArr;
     }
 }

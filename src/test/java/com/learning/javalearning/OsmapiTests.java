@@ -12,7 +12,7 @@ import de.westnordost.osmapi.traces.GpsTracesDao;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 

@@ -4,7 +4,7 @@ import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.spi.CallerData;
 import ch.qos.logback.classic.spi.LoggingEvent;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @Author qhlai
