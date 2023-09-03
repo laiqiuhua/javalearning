@@ -27,6 +27,7 @@ public class TelnetServerHandler extends SimpleChannelInboundHandler<String> {
         // Generate and write a response.
         String response;
         boolean close = false;
+        System.err.println("received data: "+ request);
         if (request.isEmpty()) {
             response = "Please type something.\r\n";
         } else if ("bye".equals(request.toLowerCase())) {
@@ -62,6 +63,6 @@ public class TelnetServerHandler extends SimpleChannelInboundHandler<String> {
 	protected void channelRead0(ChannelHandlerContext ctx, String msg)
 			throws Exception {
 		// TODO Auto-generated method stub
-		
+        messageReceived(ctx, msg);
 	}
 }

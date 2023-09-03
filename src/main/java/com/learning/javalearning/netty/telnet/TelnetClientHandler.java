@@ -24,6 +24,6 @@ public class TelnetClientHandler extends SimpleChannelInboundHandler<String> {
 	protected void channelRead0(ChannelHandlerContext ctx, String msg)
 			throws Exception {
 		// TODO Auto-generated method stub
-		
+        messageReceived(ctx, msg);
 	}
 }

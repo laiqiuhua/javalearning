@@ -16,7 +16,7 @@ public class NetworkPractice {
         }
 
         MulticastSocket socket = new MulticastSocket(678);
-        InetAddress group = InetAddress.getByName("224.0.0.4");
+        InetAddress group = InetAddress.getByName(" 192.168.31.234");
         socket.joinGroup(group);
 
         DatagramPacket packet;

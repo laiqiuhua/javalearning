@@ -12,7 +12,7 @@ public class TestMainAgent {
     public static void main(String[]args) throws Exception {
 
         // 被监控jvm的pid
-        String targetVmPid = "53877";
+        String targetVmPid = "22387";
         // Attach到被监控的JVM进程上
         VirtualMachine vm = VirtualMachine.attach(targetVmPid);
         // 让JVM加载jmx Agent

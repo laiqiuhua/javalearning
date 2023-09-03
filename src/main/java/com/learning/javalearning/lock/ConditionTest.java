@@ -16,21 +16,18 @@ public class ConditionTest {
     public static Condition condition = lock.newCondition();
 
     public static void main(String[] args) {
-        new Thread() {
-            @Override
-            public void run() {
-                lock.lock();//请求锁
-                try {
-                    System.out.println(Thread.currentThread().getName() + "==》进入等待");
-                    condition.await();//设置当前线程进入等待
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
-                    lock.unlock();//释放锁
-                }
-                System.out.println(Thread.currentThread().getName() + "==》继续执行");
+        new Thread(() -> {
+            lock.lock();//请求锁
+            try {
+                System.out.println(Thread.currentThread().getName() + "==》进入等待");
+                condition.await();//设置当前线程进入等待
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                lock.unlock();//释放锁
             }
-        }.start();
+            System.out.println(Thread.currentThread().getName() + "==》继续执行");
+        }).start();
         new Thread() {
             @Override
             public void run() {

@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.3</version>
+        <version>2.6.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -22,11 +22,21 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <netty-all.version>4.1.86.Final</netty-all.version>
+        <netty-all.version>4.1.97.Final</netty-all.version>
         <jackson.core.version>2.15.2</jackson.core.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15to18</artifactId>
+            <version>1.69</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15to18</artifactId>
+            <version>1.69</version>
+        </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
@@ -146,6 +156,60 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.sundr/sundr-model -->
+        <dependency>
+            <groupId>io.sundr</groupId>
+            <artifactId>sundr-model</artifactId>
+            <version>0.100.3</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.sundr</groupId>
+            <artifactId>sundr-adapter-apt</artifactId>
+            <version>0.100.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.sundr/builder-annotations -->
+        <dependency>
+            <groupId>io.sundr</groupId>
+            <artifactId>builder-annotations</artifactId>
+            <version>0.100.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.sundr</groupId>
+            <artifactId>sundr-codegen-apt</artifactId>
+            <version>0.100.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.sundr/sundr-adapter-reflect -->
+        <dependency>
+            <groupId>io.sundr</groupId>
+            <artifactId>sundr-adapter-reflect</artifactId>
+            <version>0.100.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.sundr</groupId>
+            <artifactId>sundr-adapter-source</artifactId>
+            <version>0.100.3</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.testing.compile/compile-testing -->
+        <dependency>
+            <groupId>com.google.testing.compile</groupId>
+            <artifactId>compile-testing</artifactId>
+            <version>0.21.0</version>
+            <scope>test</scope>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -163,7 +227,7 @@
                         <arg>-Xlint:deprecation</arg>
                         <arg>-bootclasspath</arg>
                         <arg>
-                            ${java.home}/lib/rt.jar:/Users/laiqiuhua/Library/Java/JavaVirtualMachines/temurin-1.8.0_372/Contents/Home/lib/tools.jar:/Users/laiqiuhua/Library/Java/JavaVirtualMachines/temurin-1.8.0_372/Contents/Home/lib/sa-jdi.jar:/Users/laiqiuhua/Library/Java/JavaVirtualMachines/temurin-1.8.0_372/Contents/Home/lib/dt.jar
+                            ${java.home}/lib/rt.jar:${java.home}/../lib/tools.jar:${java.home}/../lib/sa-jdi.jar:${java.home}/../lib/dt.jar
                         </arg>
                         // 如果项目中引用了JDK8下面的JAR包，也需要指定路径
                     </compilerArgs>

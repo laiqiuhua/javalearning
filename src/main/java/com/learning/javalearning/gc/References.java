@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 public class References {
 
-    private static ReferenceQueue<VeryBig> rq = new ReferenceQueue<VeryBig>();
+    private static final ReferenceQueue<VeryBig> rq = new ReferenceQueue<>();
 
     public static void checkQueue() {
         Reference<? extends VeryBig> inq = rq.poll();
@@ -25,7 +25,7 @@ public class References {
          * */
         LinkedList<SoftReference<VeryBig>> sa = new LinkedList<SoftReference<VeryBig>>();
         for (int i = 0; i < size; i++) {
-            sa.add(new SoftReference(new VeryBig("Soft " + i), rq));
+            sa.add(new SoftReference<>(new VeryBig("Soft " + i), rq));
             System.out.println("Just created: " + sa.getLast().get());
             checkQueue();//一直为空
         }
@@ -34,7 +34,7 @@ public class References {
          * */
         LinkedList<WeakReference<VeryBig>> wa = new LinkedList<WeakReference<VeryBig>>();
         for (int i = 0; i < size; i++) {
-            wa.add(new WeakReference(new VeryBig("Weak " + i), rq));
+            wa.add(new WeakReference<>(new VeryBig("Weak " + i), rq));
             System.out.println("Just created: " + wa.getLast().get());
             checkQueue();
         }
@@ -46,7 +46,7 @@ public class References {
 
         LinkedList<PhantomReference<VeryBig>> pa = new LinkedList<PhantomReference<VeryBig>>();
         for (int i = 0; i < size; i++) {
-            pa.add(new PhantomReference(new VeryBig("Phantom " + i), rq));
+            pa.add(new PhantomReference<>(new VeryBig("Phantom " + i), rq));
             System.out.println("Just created: " + pa.getLast());
             checkQueue();
         }

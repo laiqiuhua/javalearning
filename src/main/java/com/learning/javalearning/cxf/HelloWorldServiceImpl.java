@@ -31,7 +31,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 
 //但它们对应于MessageContext对象中存储的都是HttpServletRequest对象
 
-//    HttpServletRequest request = (HttpServletRequest) messageContext.get(AbstractHTTPDestination.HTTP_REQUEST);
+//HttpServletRequest request = (HttpServletRequest) messageContext.get(AbstractHTTPDestination.HTTP_REQUEST);
 
         HttpServletResponse response = (HttpServletResponse) messageContext.get(MessageContext.SERVLET_RESPONSE);
         response.addHeader("aaaa", "bbbbb");
