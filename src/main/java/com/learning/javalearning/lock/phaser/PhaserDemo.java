@@ -21,8 +21,8 @@ import java.util.concurrent.Phaser;
 public class PhaserDemo {
     static class PreTaskThread implements Runnable {
 
-        private String task;
-        private Phaser phaser;
+        private final String task;
+        private final Phaser phaser;
 
         public PreTaskThread(String task, Phaser phaser) {
             this.task = task;
@@ -39,8 +39,8 @@ public class PhaserDemo {
                     }
                     Random random = new Random();
                     Thread.sleep(random.nextInt(1000));
-                    System.out.println(String.format("关卡%d，需要加载%d个模块，当前模块【%s】",
-                            i, phaser.getRegisteredParties(), task));
+                    System.out.printf("关卡%d，需要加载%d个模块，当前模块【%s】%n",
+                            i, phaser.getRegisteredParties(), task);
 
                     // 从第二个关卡起，不加载NPC
                     if (i == 1 && "加载新手教程".equals(task)) {
@@ -60,7 +60,7 @@ public class PhaserDemo {
         Phaser phaser = new Phaser(4) {
             @Override
             protected boolean onAdvance(int phase, int registeredParties) {
-                System.out.println(String.format("第%d次关卡准备完成", phase + 1));
+                System.out.printf("第%d次关卡准备完成%n", phase + 1);
                 return phase == 3 || registeredParties == 0;
             }
         };
