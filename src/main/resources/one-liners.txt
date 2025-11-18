@@ -558,7 +558,7 @@ RPM
 ($) Show version of httpd package: `rpm -q httpd`
 ($) List versions of all matching packages: `rpm -qa 'mariadb*'`
 ($) Forcibly install a package regardless of currently installed versions: `rpm -U package_name.rpm --force`
-($) Identify owner of a file and show version of the package: `rpm -qf /etc/postfix/main.cf`
+($) Identify owner of a file and show version of the package: `rpm -qf /etc/postfix/lightGBMConvertExample.cf`
 ($) List package-owned files: `rpm -ql kernel`
 ($) Show scriptlets from an RPM file: `rpm -qp --scripts package_name.rpm`
 ($) Show changed, missing and/or incorrectly installed files of matching packages: `rpm -Va 'php-*'`
@@ -705,7 +705,7 @@ PANDOC, PDF, GHOSTSCRIPT
 
 ($) Combined two or more PDFs using poppler: `pdfunite one.pdf two.pdf output.pdf`
 ($) Compress a PDF using ghostscript: `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=foo-compressed.pdf foo.pdf`)
-($) Make a PDF "read-only" (NOT secure, but often effective): `gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=main_secure.pdf main.pdf`
+($) Make a PDF "read-only" (NOT secure, but often effective): `gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=main_secure.pdf lightGBMConvertExample.pdf`
 
 MYSQL
 =====
@@ -1054,8 +1054,8 @@ FFMPEG (SIMPLE)
 ($) Flip a video horizontally (this way: left <-> right): `ffmpeg -i original.mp4 -vf hflip original_flipped.mp4`
 ($) Flip a video vertically (this way: up <-> down): `ffmpeg -i original.mp4 -vf vflip original_flipped.mp4`
 ($) Combine multiple images into a video using ffmpeg: `ffmpeg -start_number 0053 -r 1/5 -i IMG_%04d.JPG -c:v libx264 -vf fps=25 -pix_fmt yuv420p out.mp4`
-($) Inset video. `ffmpeg -i main.mp4 -i inset.mp4 -filter_complex 'overlay=main_w-overlay_w+(1920-192*2.5):main_h-overlay_h+(1080-108*2.5)' -t 5 output.mp4`
-($) Cover the main video with a transparent color: `ffmpeg -i lights.mp4 -vf 'color=color=red@.3:size=1920x1080 [over]; [in][over] overlay [out]' -t 5 output.mp4`
+($) Inset video. `ffmpeg -i lightGBMConvertExample.mp4 -i inset.mp4 -filter_complex 'overlay=main_w-overlay_w+(1920-192*2.5):main_h-overlay_h+(1080-108*2.5)' -t 5 output.mp4`
+($) Cover the lightGBMConvertExample video with a transparent color: `ffmpeg -i lights.mp4 -vf 'color=color=red@.3:size=1920x1080 [over]; [in][over] overlay [out]' -t 5 output.mp4`
 ($) Downmix first audio stream from 7.1 to 5.1 keeping all other streams: `ffmpeg -i in.mkv -map 0 -c copy -c:a:0 aac -ac:a:0 6 out.mkv`
 ($) Download screenshot or frame from YouTube video at certain timestamp: `ffmpeg -ss 8:14 -i $(youtube-dl -f 299 --get-url URL) -vframes 1 -q:v 2 out.jpg`
 ($) ffmpeg fade from video 1 to video 2 (start at 20 seconds for 2 sec): `ffmpeg -i video1.mp4 -i video2.mp4 -filter_complex "xfade=offset=20:duration=2" v1_to_v2.mp4`
@@ -1097,7 +1097,7 @@ FFMPEG STREAMING, COMBINING MULTIPLE SOURCES, CAPTURING DEVICES
 ($) Stream desktop and default microphone: `KEY="your-key-goes-here" && ffmpeg -stream_loop -1 -re -f x11grab -i :0.0 -f pulse -ac 2 -i default -c:v libx264 -pix_fmt yuv420p -preset superfast -r 24 -g 48 -b:v 1500k -c:a aac -f flv "rtmp://a.rtmp.youtube.com/live2/$KEY"`
 ($) Stream webcam (`/dev/video1`) and default microphone: `KEY="your-key-goes-here" && ffmpeg -stream_loop -1 -re /dev/video1 -f pulse -ac 2 -i default -c:v libx264 -pix_fmt yuv420p -preset superfast -r 24 -g 48 -b:v 1500k -c:a aac -f flv "rtmp://a.rtmp.youtube.com/live2/$KEY"`
 
-($) Capture main screen (:0) and the default Pulse Audio sink: `ffmpeg -video_size 1366x768 -framerate 30 -f x11grab -i :0.0 -f pulse -ac 2 -i default -c:v libx264rgb -crf 0 -preset ultrafast -c:a libopus output.mkv`
+($) Capture lightGBMConvertExample screen (:0) and the default Pulse Audio sink: `ffmpeg -video_size 1366x768 -framerate 30 -f x11grab -i :0.0 -f pulse -ac 2 -i default -c:v libx264rgb -crf 0 -preset ultrafast -c:a libopus output.mkv`
 ($) Take the audio of the first source and the video of the second source and combine: `ffmpeg -i "https://ycradio.stream.publicradio.org/ycradio.aac" -i "video.mp4" -c:a aac -c:v copy -map 0:a:0 -map 1:v:0 -f matroska out.mkv`
 ($) Merge a video that contains audio with an audio stream: `ffmpeg -i "https://hygge.stream.publicradio.org/hygge.aac" -i "walk_in_the_rain.mp4" -c:a aac -c:v copy -filter_complex "[0:a][1:a]amerge=inputs=2[aout]" -map "[aout]" -map 1:v:0 -f matroska - | ffplay -`
 ($) Visual spectrograph of an audio stream: `ffmpeg -i "https://nightride.fm/stream/nightride.m4a" -filter_complex "[0:a]avectorscope=s=480x480:zoom=1.5:rc=0:gc=200:bc=0:rf=0:gf=40:bf=0,format=yuv420p[v]; [v]pad=854:480:187:0[out]" -map "[out]" -map 0:a -b:v 700k -b:a 360k -f matroska - | ffplay -`

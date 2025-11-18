@@ -141,7 +141,7 @@ hsdb> scanoops 0x0000000110400000 0x0000000110e00000 com.lhx.cloud.javathread.Ma
 ````
 hsdb> whatis 0x00000001104a5ec0
 ````
-Address 0x00000001104a5ec0: In thread-local allocation buffer for thread "main" (6659)  [0x000000011049db70,0x00000001104a5fd0,0x00000001104ab858,{0x00000001104ab870})
+Address 0x00000001104a5ec0: In thread-local allocation buffer for thread "lightGBMConvertExample" (6659)  [0x000000011049db70,0x00000001104a5fd0,0x00000001104ab858,{0x00000001104ab870})
 　　如果是用Parallel GC，其实稍微改造一下Serviceability Agent的Java部分就可以让whatis正确显示了，其实就是上文在启动时设置下GC方式
 ````
 hsdb> whatis 0x000000076ab7a5b8
@@ -218,7 +218,7 @@ Oop for java/lang/Class @ 0x00000001104a35c8
 用whatis命令来看看这个Class对象在哪里：
 ````
 hsdb> whatis 0x00000001104a35c8
-Address 0x00000001104a35c8: In thread-local allocation buffer for thread "main" (6659)  [0x000000011049db70,0x00000001104a5fd0,0x00000001104ab858,{0x00000001104ab870})
+Address 0x00000001104a35c8: In thread-local allocation buffer for thread "lightGBMConvertExample" (6659)  [0x000000011049db70,0x00000001104a5fd0,0x00000001104ab858,{0x00000001104ab870})
 ````
 可以看到这个Class对象也在eden里，具体来说在main线程的TLAB里。
 
@@ -246,7 +246,7 @@ hsdb>
 hsdb> revptrs 0x00000001104a5ee8
 Oop for com/lhx/cloud/javathread/MarkWord/Test @ 0x00000001104a5ed0
 hsdb> whatis 0x00000001104a5ed0
-Address 0x00000001104a5ed0: In thread-local allocation buffer for thread "main" (6659)  [0x000000011049db70,0x00000001104a5fd0,0x00000001104ab858,{0x00000001104ab870})
+Address 0x00000001104a5ed0: In thread-local allocation buffer for thread "lightGBMConvertExample" (6659)  [0x000000011049db70,0x00000001104a5fd0,0x00000001104ab858,{0x00000001104ab870})
 ````
 ````
 hsdb> inspect 0x00000001104a5ed0

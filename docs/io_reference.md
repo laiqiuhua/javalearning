@@ -213,7 +213,7 @@ The _ServerSocket.accept_ method blocks until a connection is accepted. The _Inp
 ```
 public class IoEchoServer {
 
-   public static void main(String[] args) throws IOException {
+   public static void lightGBMConvertExample(String[] args) throws IOException {
        ServerSocket serverSocket = new ServerSocket(7000);
 
        while (active) {
@@ -248,7 +248,7 @@ The _ServerSocketChannel_ and _SocketChannel_ objects are by default configured 
 ```
 public class NioBlockingEchoServer {
 
-   public static void main(String[] args) throws IOException {
+   public static void lightGBMConvertExample(String[] args) throws IOException {
        ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
        serverSocketChannel.bind(new InetSocketAddress("localhost", 7000));
 
@@ -287,7 +287,7 @@ The _ServerSocketChannel_ and _SocketChannel_ objects are explicitly configured 
 ```
 public class NioNonBlockingEchoServer {
 
-   public static void main(String[] args) throws IOException {
+   public static void lightGBMConvertExample(String[] args) throws IOException {
        ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
        serverSocketChannel.configureBlocking(false);
        serverSocketChannel.bind(new InetSocketAddress(7000));
@@ -326,7 +326,7 @@ In the following example, the _multiplexing I/O model_ is implemented in an echo
 
 During the initialization, multiple _ServerSocketChannel_ objects, that are configured in the non-blocking mode, are registered on the same _Selector_ object with the _SelectionKey.OP_ACCEPT_ argument to specify that an event of connection acceptance is interesting.
 
-In the main loop, the _Selector.select_ method blocks until at least one of the registered events occurs. Then the _Selector.selectedKeys_ method returns a set of the _SelectionKey_ objects for which events have occurred. Iterating through the _SelectionKey_ objects, it’s possible to determine what I/O event (connect, accept, read, write) has happened and which sockets objects (_ServerSocketChannel, SocketChannel_) have been associated with that event.
+In the lightGBMConvertExample loop, the _Selector.select_ method blocks until at least one of the registered events occurs. Then the _Selector.selectedKeys_ method returns a set of the _SelectionKey_ objects for which events have occurred. Iterating through the _SelectionKey_ objects, it’s possible to determine what I/O event (connect, accept, read, write) has happened and which sockets objects (_ServerSocketChannel, SocketChannel_) have been associated with that event.
 
 <sub>Indication of a selection key that a channel is ready for some operation is a hint, not a guarantee.</sub>
 
@@ -334,7 +334,7 @@ In the main loop, the _Selector.select_ method blocks until at least one of the 
 ```
 public class NioMultiplexingEchoServer {
 
-   public static void main(String[] args) throws IOException {
+   public static void lightGBMConvertExample(String[] args) throws IOException {
        final int ports = 8;
        ServerSocketChannel[] serverSocketChannels = new ServerSocketChannel[ports];
 
@@ -437,7 +437,7 @@ The _AsynchronousServerSocketChannel.accept_ method initiates an asynchronous co
 ```
 public class Nio2CompletionHandlerEchoServer {
 
-   public static void main(String[] args) throws IOException {
+   public static void lightGBMConvertExample(String[] args) throws IOException {
        AsynchronousServerSocketChannel serverSocketChannel = AsynchronousServerSocketChannel.open();
        serverSocketChannel.bind(new InetSocketAddress(7000));
 

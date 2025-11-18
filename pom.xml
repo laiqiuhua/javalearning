@@ -205,6 +205,56 @@
             <scope>test</scope>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.jpmml</groupId>
+            <artifactId>pmml-lightgbm</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.jpmml/pmml-converter -->
+        <dependency>
+            <groupId>org.jpmml</groupId>
+            <artifactId>pmml-converter</artifactId>
+            <version>1.5.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.beust</groupId>
+            <artifactId>jcommander</artifactId>
+            <version>1.72</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>3.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.activation</groupId>
+                    <artifactId>jakarta.activation</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-xjc</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.17</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.google.testing.compile/compile-testing -->
         <dependency>
             <groupId>com.google.testing.compile</groupId>
@@ -225,7 +275,7 @@
                     <target>${java.version}</target>
                     <encoding>UTF-8</encoding>
                     <compilerArgs>
-<!--                        <arg>-verbose</arg>-->
+                        <!--                        <arg>-verbose</arg>-->
                         <arg>-Xlint:unchecked</arg>
                         <arg>-Xlint:deprecation</arg>
                         <arg>-bootclasspath</arg>

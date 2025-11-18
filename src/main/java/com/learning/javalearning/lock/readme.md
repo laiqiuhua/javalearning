@@ -46,7 +46,7 @@ static class MyThread implements Runnable {
         }
     }
 
-    public static void main(String[] args) {
+    public static void lightGBMConvertExample(String[] args) {
         Semaphore semaphore = new Semaphore(3);
         for (int i = 0; i < 10; i++) {
             new Thread(new MyThread(i, semaphore)).start();
@@ -92,7 +92,7 @@ Semaphore内部有一个继承了AQS的同步器Sync，重写了tryAcquireShared
 17.2 Exchanger
 Exchanger类用于两个线程交换数据。它支持泛型，也就是说你可以在两个线程之间传送任何数据。先来一个案例看看如何使用，比如两个线程之间想要传送字符串：
 public class ExchangerDemo {
-public static void main(String[] args) throws InterruptedException {
+public static void lightGBMConvertExample(String[] args) throws InterruptedException {
 Exchanger<String> exchanger = new Exchanger<>();
 
         new Thread(() -> {
@@ -169,7 +169,7 @@ static class PreTaskThread implements Runnable {
         }
     }
 
-    public static void main(String[] args) {
+    public static void lightGBMConvertExample(String[] args) {
         // 假设有三个模块需要加载
         CountDownLatch countDownLatch = new CountDownLatch(3);
 
@@ -240,7 +240,7 @@ static class PreTaskThread implements Runnable {
         }
     }
 
-    public static void main(String[] args) {
+    public static void lightGBMConvertExample(String[] args) {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(3, () -> {
             System.out.println("本关卡所有前置任务完成，开始游戏...");
         });
@@ -331,7 +331,7 @@ static class PreTaskThread implements Runnable {
         }
     }
 
-    public static void main(String[] args) {
+    public static void lightGBMConvertExample(String[] args) {
         Phaser phaser = new Phaser(4) {
             @Override
             protected boolean onAdvance(int phase, int registeredParties) {
